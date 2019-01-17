@@ -8,16 +8,16 @@ const CounterModelContext = React.createContext()
 export function CounterModelProvider(props) {
   let [state, setState] = useState(() => {
     return {
-      count: 0,
       counterModel: new CounterModel(0, onModelStateUpdated)
     }
   })
 
-  function onModelStateUpdated(modelState) {
-    console.log('onModelStateUdpated called with new state:', modelState)
-    // setState({ ...state, ...modelState })
+  function onModelStateUpdated(model) {
+    console.log('onModelStateUdpated called with new model:', model)
     setState(prevState => {
-      return { ...prevState, ...modelState }
+      let newModel = new CounterModel(0, onModelStateUpdated)
+      newModel.state = model.state
+      return { ...prevState, counterModel: newModel }
     })
   }
 

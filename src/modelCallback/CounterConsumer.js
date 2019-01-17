@@ -6,6 +6,7 @@ import CounterModelContext from './CounterModelContext.js'
 
 export function CounterConsumer(props) {
   function onIncrementClick() {
+    console.log('Increment clicked: ', props.counterModel)
     props.counterModel.increment()
   }
 
@@ -17,7 +18,7 @@ export function CounterConsumer(props) {
   return (
     <div>
       <label>Counter:</label>
-      {props.count}
+      {props.counterModel.state.count}
       <div>
         <button onClick={onIncrementClick}>Increment</button>
         <button onClick={onDecrementClick}>Decrement</button>

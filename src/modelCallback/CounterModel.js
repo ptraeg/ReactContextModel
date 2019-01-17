@@ -8,9 +8,10 @@ export default class CounterModel {
   }
 
   _stateUpdated() {
+    console.log('updateStateCallback: ', this.updateStateCallback)
     if (this.updateStateCallback) {
       console.log('Calling back: ', this.state)
-      this.updateStateCallback(this.state)
+      this.updateStateCallback(this)
     }
   }
 

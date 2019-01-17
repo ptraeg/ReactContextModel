@@ -47,7 +47,7 @@ function App() {
       </form>
       {selectedOption === 'modelCallback' && <ModelCallbackExample />}
       {selectedOption === 'reducer' && <ReducerContextExample />}
-      The value of foo is: {foo}
+      The value of foo is: {foo} &nbsp;
       <button onClick={updateState}>Update State</button>
     </div>
   )
