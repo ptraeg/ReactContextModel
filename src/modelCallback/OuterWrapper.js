@@ -7,24 +7,17 @@ import CounterModelContext from './CounterModelContext.js'
 
 import styles from './OuterWrapper.module.scss'
 
-export default function OuterWrapper(props) {
+function OuterWrapper(props) {
   const counterContext = useContext(CounterModelContext)
 
-  function render() {
-    console.log('Rendering OuterWrapper')
-    return (
-      <div className={styles.wrapper}>
-        <h3>Outer wrapper</h3>
-        <CounterConsumer />
-        <InnerWrapper />
-        <CounterDisplay />
-      </div>
-    )
-  }
-
-  const memoizedValue = useMemo(() => render(counterContext.count), [
-    counterContext.count
-  ])
-
-  return memoizedValue
+  console.log('Rendering OuterWrapper')
+  return (
+    <div className={styles.wrapper}>
+      <h3>Outer wrapper</h3>
+      <CounterConsumer />
+      <InnerWrapper />
+      <CounterDisplay />
+    </div>
+  )
 }
+export default React.memo(OuterWrapper)

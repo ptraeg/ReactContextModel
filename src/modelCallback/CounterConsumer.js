@@ -1,28 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useContext, useState } from 'react'
+import useContextForComponent from '../common/UseContextForComponent'
 import CounterModelContext from './CounterModelContext.js'
 
-export default function CounterConsumer(props) {
-  const counterContext = useContext(CounterModelContext)
-
+export function CounterConsumer(props) {
   function onIncrementClick() {
-    counterContext.counterModel.increment()
+    props.counterModel.increment()
   }
 
   function onDecrementClick() {
-    counterContext.counterModel.decrement()
+    props.counterModel.decrement()
   }
 
   console.log('Counter consumer is rendering')
   return (
     <div>
       <label>Counter:</label>
-      {counterContext.count}
+      {props.count}
       <div>
         <button onClick={onIncrementClick}>Increment</button>
         <button onClick={onDecrementClick}>Decrement</button>
       </div>
     </div>
   )
+}
+
+export default function CounterConsumerFromContext(props) {
+  return useContextForComponent(CounterConsumer, CounterModelContext, props)
 }

@@ -18,9 +18,4 @@ function OuterWrapper(props) {
   )
 }
 
-function areEqual(prevProps, nextProps) {
-  console.log(prevProps, nextProps)
-  return true
-}
-
-export default React.memo(OuterWrapper, areEqual)
+export default React.memo(OuterWrapper)
