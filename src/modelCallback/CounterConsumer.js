@@ -27,5 +27,13 @@ export function CounterConsumer(props) {
 }
 
 export default function CounterConsumerFromContext(props) {
+  // Note that this custom hook merges just one context.
+  // Feel free to write custom code here instead if you want
+  // to merge multiple contexts and/or map prop names or restrict
+  // what context properties are passed to a component.  Look at
+  // the code for the useContextForComponent hook and you'll see
+  // it's very easy to customize this.  Or if you have multiple
+  // components that all need to pull in data from multiple contexts
+  // you can write a special hook for that case.
   return useContextForComponent(CounterConsumer, CounterModelContext, props)
 }
