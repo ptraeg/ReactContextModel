@@ -1,0 +1,11 @@
+.app {
+  font-family: sans-serif;
+  text-align: left;
+}
+
+.app form {
+  display: flex;
+  > div {
+    margin-right: 10px;
+  }
+}

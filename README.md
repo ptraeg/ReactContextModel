@@ -1,2 +1,0 @@
-# ReactContextModel
-Created with CodeSandbox
