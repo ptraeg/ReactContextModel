@@ -2,12 +2,17 @@ import React from 'react'
 import { useReducer, useState, useEffect } from 'react'
 import reducer from './CounterReducer'
 import { counterActionsFactory } from './CounterReducer'
-import useReducerInContext from '../common/UseReducerInContext'
+import useReducerAndActions from '../common/UseReducerAndActions.js'
 
 const CounterContext = React.createContext()
 
 export function CounterProvider(props) {
-  let contextValue = useReducerInContext(reducer, counterActionsFactory, {
+  // The useReducerAndActions custom hook will retain the contextValue it
+  // returns with the state and actions merged as members of the object.
+  // The object reference will only change if the state changes therefore
+  // components lower in the component tree will only re-render when the
+  // object reference (containing the state) changes.
+  let contextValue = useReducerAndActions(reducer, counterActionsFactory, {
     count: 0
   })
 

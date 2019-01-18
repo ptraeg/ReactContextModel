@@ -1,5 +1,6 @@
 const initialState = { count: 0 }
 
+// This is a classic reducer example pulled directly from the useReducer() documentation
 export default function reducer(state, action) {
   switch (action.type) {
     case 'reset':
@@ -15,6 +16,9 @@ export default function reducer(state, action) {
   }
 }
 
+// The counterActions offer an alternative way to dispatch actions to the reducer
+// using this approach the components requesting state mutations do not have to
+// rely on "magic" strings to send commands to the reducer.
 export function counterActionsFactory(dispatch) {
   return {
     increment() {

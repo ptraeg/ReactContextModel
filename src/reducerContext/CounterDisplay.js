@@ -6,6 +6,9 @@ import CounterContext from './CounterContext.js'
 import styles from './CounterDisplay.module.scss'
 
 export default function CounterDisplay(props) {
+  // This example shows referencing the context directly see
+  // CounterConsumer.js for an example of pulling the context
+  // into props to improve the testability of a component.
   console.log('Rendering CounterDisplay')
   const counterContext = useContext(CounterContext)
 

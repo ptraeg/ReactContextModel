@@ -18,4 +18,8 @@ function OuterWrapper(props) {
   )
 }
 
+// Note the use of React.memo here.  It is analagous to a React PureComponent and
+// ensures this component will only be re-rendered if the props change.  Note that
+// when the state mutates and is pushed down from CounterContext this component does
+// not need to re-render.
 export default React.memo(OuterWrapper)
