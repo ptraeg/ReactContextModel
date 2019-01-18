@@ -1,18 +1,15 @@
 import React from 'react'
 import { useReducer, useState, useEffect } from 'react'
 import reducer from './CounterReducer'
+import { counterActionsFactory } from './CounterReducer'
+import useReducerInContext from '../common/UseReducerInContext'
 
 const CounterContext = React.createContext()
 
 export function CounterProvider(props) {
-  const [state, dispatch] = useReducer(reducer, { count: 0 })
-  const [contextValue, setContextValue] = useState({ state, dispatch })
-  useEffect(
-    () => {
-      setContextValue({ state, dispatch })
-    },
-    [state]
-  )
+  let contextValue = useReducerInContext(reducer, counterActionsFactory, {
+    count: 0
+  })
 
   console.log('Counter context is rendering...')
   return (

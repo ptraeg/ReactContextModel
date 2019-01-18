@@ -6,17 +6,19 @@ import CounterContext from './CounterContext.js'
 
 export function CounterConsumer(props) {
   function onIncrementClick() {
-    props.dispatch({ type: 'increment' })
+    // props.dispatch({ type: 'increment' })
+    props.increment()
   }
 
   function onDecrementClick() {
-    props.dispatch({ type: 'decrement' })
+    // props.dispatch({ type: 'decrement' })
+    props.decrement()
   }
 
   console.log('Counter consumer is rendering')
   return (
     <div>
-      <label>Counter:</label> {props.state.count}
+      <label>Counter:</label> {props.count}
       <div>
         <button onClick={onIncrementClick}>Increment</button>
         <button onClick={onDecrementClick}>Decrement</button>

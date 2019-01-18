@@ -14,7 +14,7 @@ export default function CounterDisplay(props) {
       <h3>Counter Display</h3>
       <p>This component just displays the state of the shared counter</p>
       <label>Counter:</label>
-      {counterContext.state.count}
+      {counterContext.count}
     </div>
   )
 }

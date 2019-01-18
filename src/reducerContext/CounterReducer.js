@@ -14,3 +14,14 @@ export default function reducer(state, action) {
       return state
   }
 }
+
+export function counterActionsFactory(dispatch) {
+  return {
+    increment() {
+      dispatch({ type: 'increment' })
+    },
+    decrement() {
+      dispatch({ type: 'decrement' })
+    }
+  }
+}
