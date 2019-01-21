@@ -10,8 +10,8 @@ export default function ModelCallbackExample(props) {
       <h1>Shared model state via context</h1>
       <p>
         Illustrates multiple component instances accessing shared state through
-        a common model. Both the model and the state are accessible via the
-        React context.
+        a common model. The model is accessible via the React context via a
+        counterModel property we place in an object in the CounterModelContext.
       </p>
 
       <CounterModelProvider>

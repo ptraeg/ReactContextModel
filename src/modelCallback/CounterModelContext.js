@@ -12,12 +12,18 @@ export function CounterModelProvider(props) {
     }
   })
 
+  // The model calls back into this function whenever the state
+  // in the model is updated.  Following this approach we can
+  // update the state in this component which will be picked up by
+  // the CounterModelContext.Provider and will cause all components
+  // that reference this context to re-render.
   function onModelStateUpdated(model) {
     console.log('onModelStateUdpated called with new model:', model)
     setState(prevState => {
-      let newModel = new CounterModel(0, onModelStateUpdated)
-      newModel.state = model.state
-      return { ...prevState, counterModel: newModel }
+      // let newModel = new CounterModel(0, onModelStateUpdated)
+      // newModel.state = model.state
+      // return { ...prevState, counterModel: newModel }
+      return { ...prevState }
     })
   }
 
